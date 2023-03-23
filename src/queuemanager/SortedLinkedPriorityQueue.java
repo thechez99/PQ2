@@ -32,6 +32,16 @@ public class SortedLinkedPriorityQueue<T> implements PriorityQueue<T> {
             sort();
     }
 
+    @Override
+    public void remove() throws QueueUnderflowException {
+        if(isEmpty()){
+            throw new QueueUnderflowException();
+        } else{
+            headNode = headNode.getNextNode();
+            size--;
+        }
+    }
+
     //Sorts the list by priority
     public void sort(){
         Node currentNode = headNode;
@@ -58,6 +68,12 @@ public class SortedLinkedPriorityQueue<T> implements PriorityQueue<T> {
         } else{
             return headNode.getNodeData().getItem();
         }
+    }
+
+    //Checks if the list is empty
+    @Override
+    public boolean isEmpty() {
+        return size == 0;
     }
 
     //Gives back the head node's data
