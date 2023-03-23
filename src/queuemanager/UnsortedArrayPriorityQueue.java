@@ -57,7 +57,24 @@ public class UnsortedArrayPriorityQueue<T> implements PriorityQueue<T> {
         }
     }
 
+    // Function that returns true if the queue is empty
+        @Override
+        public boolean isEmpty() {
+            return tailIndex == -1;
+        }
 
+    // Function that returns the position of the highest priority item in the queue
+    private int getHighestPriority(){
+        int pos = 0;
+        int highestPriority = ((PriorityItem<T>) storage[0]).getPriority();
+        for (int i = 1; i <= tailIndex; i++){
+            if (((PriorityItem<T>) storage[i]).getPriority() > highestPriority){
+                highestPriority = ((PriorityItem<T>) storage[i]).getPriority();
+                pos = i;
+            }
+        }
+        return pos;
+    }
 
 
 }
