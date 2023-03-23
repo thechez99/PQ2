@@ -26,7 +26,30 @@ public class UnsortedLinkedPriorityQueue<T> implements PriorityQueue<T>{
             return headNode.getNextNode().getNodeData().getItem();
     }
 
+    @Override
+    public void remove() throws QueueUnderflowException {
+        if(isEmpty())
+            throw new QueueUnderflowException();
+        else{
+            SortedLinkedPriorityQueue<T>.Node previous = null;
+            SortedLinkedPriorityQueue<T>.Node current = headNode.getNextNode();
+            SortedLinkedPriorityQueue<T>.Node temp = current;
 
+            while(current.getNextNode() != null){
+                previous = current;
+                current = current.getNextNode();
+            }
+
+            previous.setNextNode(null);
+
+            headNode.setNextNode(headNode.getNextNode());
+        }
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return headNode.getNextNode() == null;
+    }
 
     class Node{
         private PriorityItem<T> nodeData;
