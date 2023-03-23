@@ -34,5 +34,30 @@ public class UnsortedArrayPriorityQueue<T> implements PriorityQueue<T> {
         }
     }
 
+    // Function that returns the highest priority item in the queue
+    @Override
+    public T head() throws QueueUnderflowException {
+        if(isEmpty()){
+            throw new QueueUnderflowException();
+        } else{
+            int pos = this.getHighestPriority();
+            return ((PriorityItem<T>) storage[pos]).getItem();
+        }
+    }
+
+    // Function that removes the position of the highest priority item in the queue
+    @Override
+    public void remove() throws QueueUnderflowException {
+        if (isEmpty()){
+            throw new QueueUnderflowException();
+        } else{
+            int pos = this.getHighestPriority();
+            storage[pos] = storage[tailIndex];
+            tailIndex--;
+        }
+    }
+
+
+
 
 }
