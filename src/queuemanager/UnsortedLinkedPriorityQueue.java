@@ -85,3 +85,8 @@ public class UnsortedLinkedPriorityQueue<T> implements PriorityQueue<T>{
     }
 
 }
+
+/* CODE REFERENCES
+ * Dixit, R. (2017) Introduction to Data Structures & Algorithms in Java [online]. LinkedIn Learning. Available at <https://www.linkedin.com/learning/introduction-to-data-structures-algorithms-in-java/what-is-a-linked-list?autoplay=true&resume=false&u=2102796> [24 March 2022]
+ * Stackoverflow (2015) Bubble Sort Manually a Linked List in Java [online] Stackoverflow. Available at <https://stackoverflow.com/questions/29869094/bubble-sort-manually-a-linked-list-in-java> [25 March 2022]
+ */
